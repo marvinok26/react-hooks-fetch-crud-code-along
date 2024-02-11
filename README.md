@@ -408,7 +408,7 @@ button:
 ```jsx
 // src/components/Item.js
 
-function Item({ item }) {
+function Item({ item, onUpdateItem, onDeleteItem }) {
   // Add function to handle button click
   function handleAddToCartClick() {
     console.log("clicked item:", item);
@@ -670,7 +670,8 @@ function ShoppingList() {
 
   // add this callback function
   function handleDeleteItem(deletedItem) {
-    console.log("In ShoppingCart:", deletedItem);
+     const updatedItems = items.filter((item) => item.id !== deletedItem.id);
+  setItems(updatedItems);
   }
 
   // ...rest of component
